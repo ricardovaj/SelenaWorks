@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <img src="snow.png" alt="">
+    <canvas id="snow" ></canvas>
+    <script>
+        var canvas = document.getElementById('snow');
+        var ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        //(雪花的中心坐标x,y,缩放大小,每次旋转角度scale,水平速度speedX,垂直速度speedY,旋转角速度speedR)
+        function createSnow(x,y,scale,rotate,speedX,speedY,speedR){
+            this.x = x;
+            this.y = y;
+            this.scale = scale;
+            this.rotate = rotate;
+            this.speedX = speedX;
+            this.speedY = speedY;
+            this.speedR = speedR;
+        }
+        createSnow.prototype.render = function(){
+            ctx.save();
+            ctx.beginPath();
+            ctx.translate(this.x,this.y);
+            ctx.rotate(this.rotate * Math.PI/180);
+            ctx.scale(this.scale,this.scale);
+            ctx.moveTo(-16,0);
+            ctx.lineTo(16,0);
+            ctx.strokeStyle = "#fff";
+            ctx.lineWidth = '3'
+            ctx.lineCap = 'round';
+            // 旋转
+            var disX = Math.sin(30 * Math.PI / 180)*16;
+            var disY = Math.cos(30 * Math.PI / 180)*16;
+            ctx.moveTo(-disX,-disY);
+            ctx.lineTo(disX,disY);
+            ctx.moveTo(-disX,disY);
+            ctx.lineTo(disX,-disY);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        var snowArray = [];
+        function init(){
+            var len = 140;
+            for(var i = 0;i < len;i ++){
+                var x = Math.random() * canvas.width;
+                var scale = Math.random() + 0.36;
+                var rotate = Math.random() * 60;
+                var speedX = Math.random() + 1;
+                var speedY = Math.random() + 5;
+                var speedR = (Math.random() - 0.5) * 8 + 1;
+                (function(x,y,scale,rotate,speedX,speedY,speedR){
+                    setTimeout(function(){
+                        var snow = new createSnow(x,y,scale,rotate,speedX,speedY,speedR);
+                        snow.render();
+                        snowArray.push(snow);
+                    },Math.random()*8000);
+                })(x,0,scale,rotate,speedX,speedY,speedR);
+            };
+            snowRun();
+        }
+        init();
+        function snowRun(){
+            setInterval(function(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                for(var i = 0;i < snowArray.length;i ++){
+                    snowArray[i].x = (snowArray[i].x + snowArray[i].speedX) % canvas.width;
+                    snowArray[i].y = (snowArray[i].y + snowArray[i].speedY) % canvas.height;
+                    snowArray[i].rotate = (snowArray[i].rotate + snowArray[i].speedR) % 60;
+                    snowArray[i].render();
+                }
+            },30);
+        }
+    </script>
+</body>
+</html>

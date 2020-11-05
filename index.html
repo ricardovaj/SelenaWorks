@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/fullpage.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            font-family: "微软雅黑";
+        }
+
+        #fullpage .section {
+            text-align: center;
+        }
+
+        #fullpage h3 {
+            font-weight: bold;
+            font-size: 48px;
+            color: #fff;
+        }
+
+        /* 滚动条设置 */
+        #fp-nav ul li a span,
+        .fp-slidesNav ul li a span {
+            background-color: #fff;
+        }
+
+        /* 轮播按钮设置 */
+        .fp-controlArrow.fp-prev {
+            left: 60px !important;
+            width: 0;
+
+            border-width: 24px 16px 24px 0 !important;
+            border-color: transparent #888 transparent transparent;
+        }
+
+        .fp-controlArrow.fp-next {
+            right: 60px !important;
+
+            border-width: 24px 0 24px 16px !important;
+            border-color: transparent transparent transparent #888;
+        }
+
+        /* 导航样式 */
+        #menu {
+            position: fixed;
+            z-index: 999;
+            top: 5px;
+            right: 40px;
+            font-size: 16px;
+        }
+
+        #menu ul {
+            overflow: hidden;
+        }
+
+        #menu li {
+            float: left;
+            margin-left: 15px;
+        }
+
+        #menu li a {
+            color: #fff;
+            font-size: 16px;
+            height: 24px;
+            line-height: 24px;
+            padding: 0 5px;
+        }
+
+        #menu li.active a {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <ul id="menu">
+        <li data-menuanchor="first" class="active"><a href="#first">关于我</a></li>
+        <li data-menuanchor="second"><a href="#second">我的作品</a></li>
+    </ul>
+    <!-- 主页面内容 -->
+    <div id="fullpage">
+        <div class="section">
+            <div class="user">
+                <h3 style="color: #fff;">Hello, WELCOME TO YOU !</h3>
+                <h1 style="color: #fff;"> Selena </h1>
+                <button class="me">关于我</button>
+                <button class="work">我的作品</button>
+            </div>
+        </div>
+        <div class="section">
+            <div class="bj">
+
+                <div class="card">
+                    <div class="imgBox">
+                        <img src="./image/bj3.jpg" alt="">
+                        <div class="bark"></div>
+                    </div>
+                    <div class="content">
+                        <h4 class="title1">WELCOME TO YOU </h4>
+                        <a class="title2" href="#">作品</a>
+                        <p>我的CSS作品：</p>
+
+                        <p><a href="./css3/photocard/index.html" target="_blank">CSS3 Pthoto卡片</a></p>
+
+                        <p><a href="./css3/3dphotos/index.html" target="_blank">CSS3 3d旋转相册</a></p>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="section">
+
+            <div id="menu-list" class="menu">
+                <div class="menu-header" id="form"></div>
+                <ul id="demo-list">
+                    <li>
+                        <a href="#">
+                            我的JavaScript作品
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            童年经典小游戏
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="#">PC经典小游戏</a>
+                                <ul class="submenu">
+                                    <li><a href="./game/saolei/index.html" target="_blank">扫雷小游戏</a></li>
+                                    <li><a href="./game/moleattack/demo.html" target="_blank">打地鼠小游戏 </a></li>
+                                </ul>
+                                <span class="menu-label">2</span>
+                            </li>
+                            <li>
+                                <a href="#">移动端小游戏</a>
+                                <ul class="submenu">
+                                    <li><a href="./game/Tetris/index.html" target="_blank">俄罗斯方块</a></li>
+                                    <li><a href="./game/loveeat/index.html" target="_blank">贪吃蛇小游戏 </a></li>
+                                </ul>
+                                <span class="menu-label">2</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="./game/3Dphotos/demo.html" target="_blank">
+                            3D旋转相册-原生js
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./game/3Dslide/index.html">
+                            3D翻转轮播图
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            canvas作品
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="./game/snow/snowtext.html">雪花飘落特效</a>
+                            </li>
+                            <li>
+                                <a href="./game/didadida.html">雨点滴答特效</a>
+                            </li>
+                            <li>
+                                <a href="./game/index.html">旋转时钟特效</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <div class="menu-footer">
+                    Footer
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="./js/jQuery1.12.4.js"></script>
+    <script src="./js/fullpage.js"></script>
+    <script src="./js/menu.js"></script>
+    <script>
+        $('#fullpage').fullpage({
+            sectionsColor: ['#ff9a9e', '#fde3a7', '#E9967A'], //配置背景块颜色
+            navigation: true, //是否显示滚动条
+            navigationTooltips: ['第一页', '第二页', '第三页'], //滚动条定义
+            anchors: ['first', 'second', 'third'],
+            menu: '#menu',
+        });
+        $("#menu-list").jquerydemo();
+    </script>
+</body>
+
+</html>

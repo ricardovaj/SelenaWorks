@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/* 个人页面 */
+.user {
+    font-family: '微软雅黑', cursive;
+    width: 100%;
+    height: 100%;
+    background-image: url(../image/bj.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.user::after {
+    position: absolute;
+    top: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.user a {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    z-index: 999;
+}
+
+.user a:hover {
+    border-bottom: 1.5px solid #000;
+}
+
+#fullpage .user h3 {
+    margin-top: 240px;
+    color: #000;
+    font-weight: 400;
+}
+
+#fullpage .user h1 {
+    margin-top: 15px;
+}
+
+#fullpage .user button {
+    width: 150px;
+    height: 50px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#fullpage .user .me {
+    background-color: rgb(134, 119, 119);
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+    margin-top: 150px;
+}
+
+#fullpage .user .work {
+    margin-left: 10px;
+    margin-top: 150px;
+}
+
+/* 翻页小书 */
+.bj{
+    width: 100%;
+    height: 100%;
+    background-image: url(../image/bj4.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+.card {
+    font-family: 'Indie Flower', cursive;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -120px;
+    background-color: #e0e1dc;
+    box-shadow: inset 300px 0 12px rgba(0, 0, 0, 0.25), 16px 0 42px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    perspective: 1600px;
+    transition: all 1s;
+
+
+
+
+/* 
+    font-family: '微软雅黑', cursive;
+     */
+}
+
+.card::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    background-color: #bac1ba;
+    transform: skewX(-45deg);
+    transform-origin: bottom;
+}
+
+.card::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 5px;
+    position: absolute;
+    right: -5px;
+    top: 0;
+    background-color: #bac1ba;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: all 1s;
+}
+
+.card .imgBox img {
+    width: 100%;
+    height: 100%;
+}
+
+.card:hover {
+    transform: rotate(8deg) scale(1.15);
+    box-shadow: inset 30px 0 8px rgba(0, 0, 0, 0.25)
+}
+
+.card:hover .imgBox {
+    transform: rotateY(-135deg);
+    transform-origin: left;
+}
+
+.card .imgBox .bark {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #e0e1dc;
+    opacity: 0;
+    box-shadow: inset 300px 200px 100px rgba(0, 0, 0, 0.25);
+    transition: all 0.8s;
+}
+
+.card:hover .imgBox .bark {
+    opacity: 1;
+
+}
+
+.card .content {
+    position: absolute;
+    top: 50px;
+    left: 8px;
+    z-index: -1;
+}
+
+.card .content h4 {
+    font-size: 26px;
+    line-height: 40px;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+}
+
+.card .content p {
+    transform: rotate(-2deg);
+    padding: 0 42px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.card .content .demo {
+    font-size: 16px;
+    color: orange;
+}
+
+.content a {
+    color: #000;
+    font-size: 18px;
+}
+
+.content p>a {
+    font-size: 15px;
+}
+
+.card .title1 {
+    color: #1bbc9b;
+}
+
+.card .title2 {
+    color: #c0392b;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* 作品集 */
+#fullpage h3.mywork {
+    padding-top: 50px;
+    color: #2c3e50;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+
+
+.box {
+    margin: -80px auto 0;
+    width: 450px;
+    height: 540px;
+    border: 1px solid #999;
+    /* box-shadow: 2px 2px 4px 1px #888; */
+    z-index: 99;
+    transition: all 0.8s;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+
+}
+
+
+.box .info {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    -webkit-backface-visibility: hidden;
+    /* 隐藏旋转元素的背面*/
+    backface-visibility: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    /*后面这个0.6是指的背景的透明度*/
+    opacity: 0;
+    -webkit-transition: all 0.35s ease-in-out;
+    /*规定提示信息怎样出现ease-in-out以慢速度开始和结束*/
+    -moz-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    border-radius: 10px;
+    line-height: 540px;
+}
+
+.box:hover .info {
+    opacity: 1;
+    transition: all 0.6;
+}
+
+
+.box:hover {
+    transform: scale(1.06);
+}
+
+
+
+
+.box img {
+    width: 100%;
+
+}
+
+.box span {
+    font-size: 25px;
+    line-height: 80px;
+}

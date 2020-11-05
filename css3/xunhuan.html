@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    *{margin:0;padding:0;}
+    html,body{
+        height:100%;
+    }
+    body{
+        background:radial-gradient(ellipse at center,#34679a 0%, #214163 50%, #0d1926 100%);/*径向渐变   椭圆*/
+    }
+    body > div{
+        width:200px;/*宽度 px像素  cm*/
+        height:200px;/*高度*/
+        border:1px #fff solid;/*边框 宽度 风格 颜色*/
+        border-radius:50%;/*圆角*/
+        /* 利用相对定位显示位置 */
+        position:absolute;
+        top:15%;
+        left:50%;
+        margin-left:-101px;
+        /* 对当前元素进行旋转 */
+        transform:rotateX(80deg) rotateY(20deg);
+        /* 显示模式  3d */
+        transform-style:preserve-3d;
+    }
+    /* :nth-of-type(n) 选择器匹配属于父元素的特定类型的第 N 个子元素的每个元素. */
+    body > div:nth-of-type(2){
+        transform:rotateX(-80deg) rotateY(20deg);
+    }
+    body > div:nth-of-type(3){
+        transform:rotateX(-70deg) rotateY(60deg);
+    }
+    body > div:nth-of-type(4){
+        transform:rotateX(70deg) rotateY(60deg);
+    }
+    /* 中间的月亮 */
+    body > div:first-of-type:after{
+        width:40px;
+        height:40px;
+        content:"";
+        background:#fff;
+        /* 定位居中显示 */
+        position:absolute;
+        top:50%;
+        left:50%;
+        margin-top:-20px;
+        margin-left:-20px;
+        transform:rotateX(80deg);
+        border-radius:50%;
+        /* 动画  连续 匀速 */
+        animation:nucleus 2s infinite linear;
+    }
+    /* 小光点运动 */
+    body > div > div{
+        width:200px;
+        height:200px;
+        position:relative;
+        transform-style:preserve-3d;
+        animation:trail 1s infinite linear; /*自定义动画  动画名称 时间 播放次数 速度*/
+    }
+    /* 小光点 翻转 运动 */
+    body > div > div:after{
+        content:"";
+        width:5px;
+        height:5px;
+        background:#fff;
+        position:absolute;
+        top:-5px;
+        left:50%;
+        margin-left:-5px;
+        border-radius:50%;
+        box-shadow:0 0 12px #fff;/*阴影 x y 模糊度 颜色*/
+        animation:particle 1s infinite linear;
+    }
+    /*自定义动画执行*/
+    @keyframes trail{
+        from{
+            transform:rotateZ(0deg);
+        }
+        to{
+            transform:rotateZ(360deg);
+        }
+    }
+    @keyframes particle{
+        from{
+            transform:rotateX(90deg) rotateY(0deg);
+        }
+        to{
+            transform:rotateX(90deg) rotateY(-360deg);
+        }
+    }
+    @keyframes nucleus{
+        0%{
+            box-shadow:0 0 0 transparent;
+        }
+        50%{
+            box-shadow:0 0 25px #fff;
+        }
+        100%{
+            box-shadow:0 0 0 transparent;
+        }
+    }
+    body > div:nth-of-type(2) > div,
+    body > div:nth-of-type(2) > div:after{
+        animation-delay:-0.5s;
+    }
+    body > div:nth-of-type(3) > div,
+    body > div:nth-of-type(3) > div:after{
+        animation-delay:-1s;
+    }
+    body > div:nth-of-type(4) > div,
+    body > div:nth-of-type(4) > div:after{
+        animation-delay:-1.5s;
+    }
+
+</style>
+</head>
+<body>
+    <!-- 思路：首先要用最少的代码实现最牛逼的效果，首先在页面中，视觉上直观发现，月亮   四个椭圆，可旋转小球 利用伪元素来做-->
+  <div>
+      <div></div>
+    </div>
+  <div>
+      <div></div>
+    </div>
+  <div>
+      <div></div>
+    </div>
+  <div>
+      <div></div>
+    </div>
+</body>
+</html>
